@@ -125,7 +125,7 @@ case class AntlrSettings(sourceDirectory: File,
       val parent = sourceFile.getParentFile
       val relativePath = IO.relativize(sourceDirectory, parent)
 
-      val targetDirectory = relativePath.map(outputDirectory / _)
+      val targetDirectory = if(relativePath.isDefined) outputDirectory / relativePath.get else outputDirectory
       val packageName = relativePath.map(_.replace(java.io.File.separatorChar, '.'))
 
       AntlrTarget(sourceFile, targetDirectory, packageName)
@@ -156,13 +156,13 @@ case class AntlrSettings(sourceDirectory: File,
 }
 
 case class AntlrTarget(sourceFile: File,
-                       targetDirectory: Option[File],
+                       targetDirectory: File,
                        packageName: Option[String]) {
 
   lazy val arguments =
     Seq(
       sourceFile.toString,
-      if (targetDirectory.isDefined) s"-o ${targetDirectory.get}" else "",
+      s"-o ${targetDirectory}",
       if (packageName.isDefined) s"-package ${packageName.get}" else ""
     ).filter(_ != null).map(_.trim).filter(_.nonEmpty)
 
