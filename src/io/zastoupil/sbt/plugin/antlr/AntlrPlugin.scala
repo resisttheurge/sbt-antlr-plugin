@@ -97,7 +97,7 @@ case class AntlrTask(settings: AntlrSettings) {
 
   def apply(): Unit = settings.targets.foreach {
     (target: AntlrTarget) => {
-      Tool.main((target.arguments ++ settings.arguments).toArray)
+      Tool.main((target.arguments ++ settings.arguments).mkString(" ").split(" "))
     }
   }
 
