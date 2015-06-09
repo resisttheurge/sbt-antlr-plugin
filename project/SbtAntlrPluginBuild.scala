@@ -7,8 +7,8 @@ object SbtAntlrPluginBuild extends Build {
 
   lazy val `bintray-settings` = Seq(
     publishMavenStyle := false,
-    (bintrayRepository in bintray) := "sbt-plugins",
-    (bintrayOrganization in bintray) := None
+    bintrayRepository := "sbt-plugins",
+    bintrayOrganization := None
   )
 
   lazy val `versioning-settings` = Seq(
