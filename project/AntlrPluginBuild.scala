@@ -1,7 +1,9 @@
-import bintray.BintrayPlugin.autoImport._
 import sbt._
-import sbt.Keys._
-object SbtAntlrPluginBuild extends Build {
+import Keys._
+
+import bintray.BintrayKeys._
+
+object AntlrPluginBuild extends Build {
   lazy val `common-settings` =
     `versioning-settings` ++ `directory-settings` ++ `bintray-settings`
 
@@ -13,10 +15,10 @@ object SbtAntlrPluginBuild extends Build {
 
   lazy val `versioning-settings` = Seq(
     organization := "io.zastoupil",
-    version := "1.0.0",
+    version := "0.1.0",
     scalaVersion := "2.10.5",
     sbtVersion := "0.13.8",
-    licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+    licenses +=("MIT", url("http://opensource.org/licenses/MIT"))
   )
 
   lazy val `directory-settings` =

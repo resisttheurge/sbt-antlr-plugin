@@ -1,3 +1,4 @@
+
 lazy val `sbt-antlr-plugin` =
   (project in file("."))
     .settings(`common-settings`: _*)
