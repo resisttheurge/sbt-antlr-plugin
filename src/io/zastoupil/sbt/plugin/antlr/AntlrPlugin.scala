@@ -162,7 +162,8 @@ case class AntlrTarget(sourceFile: File,
   lazy val arguments =
     Seq(
       sourceFile.toString,
-      s"-o ${targetDirectory}",
+      s"-lib ${sourceFile.getParent}",
+      s"-o $targetDirectory",
       if (packageName.isDefined) s"-package ${packageName.get}" else ""
     ).filter(_ != null).map(_.trim).filter(_.nonEmpty)
 
