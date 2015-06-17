@@ -15,7 +15,6 @@ object AntlrPluginBuild extends Build {
 
   lazy val `versioning-settings` = Seq(
     organization := "io.zastoupil",
-    version := "0.1.0",
     scalaVersion := "2.10.5",
     sbtVersion := "0.13.8",
     licenses +=("MIT", url("http://opensource.org/licenses/MIT"))

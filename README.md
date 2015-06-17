@@ -13,7 +13,7 @@ resolvers +=
 
 Then declare a dependency on the plugin in your `project/plugins.sbt` file.
 ```scala
-addSbtPlugin("io.zastoupil" % "sbt-antlr-plugin" % "0.1.0")
+addSbtPlugin("io.zastoupil" % "sbt-antlr-plugin" % "0.2.0")
 ```
 
 Then enable the plugin in your `built.sbt` file
